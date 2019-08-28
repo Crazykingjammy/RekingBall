@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 800985358}
-  m_IndirectSpecularColor: {r: 0.44503945, g: 0.49462944, b: 0.5737321, a: 1}
+  m_IndirectSpecularColor: {r: 0.45017982, g: 0.500219, b: 0.575413, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1027,7 +1027,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &503828948
 Transform:
@@ -4019,7 +4019,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6000325cdb240878404a2528e99d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CenterPoint: {fileID: 1215064726}
   speed: 50
+  Height: 10
+  Radius: 20
+  AnglePosition: 90
 --- !u!1 &1583779296
 GameObject:
   m_ObjectHideFlags: 0
@@ -4066,8 +4070,8 @@ ReflectionProbe:
   m_TimeSlicingMode: 1
   m_Resolution: 128
   m_UpdateFrequency: 0
-  m_BoxSize: {x: 25.942247, y: 11.836393, z: 26.223064}
-  m_BoxOffset: {x: 1.1908846, y: 0.9181969, z: -4.6605015}
+  m_BoxSize: {x: 25.942247, y: 11.836393, z: 22.34171}
+  m_BoxOffset: {x: 1.1908846, y: 0.9181967, z: -4.303012}
   m_NearClip: 0.3
   m_FarClip: 1000
   m_ShadowDistance: 100

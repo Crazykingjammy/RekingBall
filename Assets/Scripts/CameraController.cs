@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+
+    //Grab the transform point to focus the camera around.
     [SerializeField]
      Transform CenterPoint;
+
+    //Grab the rec of the window that ae are going to test against for mouse camera movement.
+    [SerializeField]
+    RectTransform GameWindow;
 
     public float speed = 10.0f;
     // int boundary = 1;
@@ -34,7 +40,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButton(0) && MouseInRect())
         {
             Quaternion q = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * speed, Vector3.up);
             offset = q * offset;
@@ -68,5 +74,19 @@ public class CameraController : MonoBehaviour
 
         //}
 
+    }
+
+
+    private bool MouseInRect()
+    {
+        //Grab the mouse posotion from the InverseTransformPoint.
+        Vector2 mousepos = GameWindow.InverseTransformPoint(Input.mousePosition);
+
+        if (GameWindow.rect.Contains(mousepos))
+        {
+            return true;
+        }
+
+        return false;
     }
 }

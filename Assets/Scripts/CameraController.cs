@@ -13,10 +13,9 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     RectTransform GameWindow;
 
-    public float speed = 10.0f;
-    // int boundary = 1;
-    //int width;
-    //int height;
+    [SerializeField]
+    float speed = 10.0f;
+   
     [SerializeField]
     float Height = 10;
 
@@ -37,43 +36,19 @@ public class CameraController : MonoBehaviour
     }
 
 
+    public void UpdateGameCamera()
+    {
+        Quaternion q = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * speed, Vector3.up);
+        offset = q * offset;
+        transform.rotation = q * transform.rotation;
+
+        transform.position = CenterPoint.position + offset;
+    }
+
     // Update is called once per frame
     void LateUpdate()
     {
-        if(Input.GetMouseButton(0) && MouseInRect())
-        {
-            Quaternion q = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * speed, Vector3.up);
-            offset = q * offset;
-            transform.rotation = q * transform.rotation;
-
-        }
-
-        transform.position = CenterPoint.position + offset;
-
-        //transform.position = CenterPoint.position - new Vector3(AnglePosition,Height, Radius);
-
-        //transform.LookAt(CenterPoint);
-
-
-        //always update the position
-       // transform
-
-        //if (Input.GetMouseButton(0))
-        //{
-        //    if (Input.GetAxis("Mouse X") > 0)
-        //    {
-        //        transform.position += new Vector3(Input.GetAxisRaw("Mouse X") * Time.deltaTime * speed,
-        //                                   0.0f, Input.GetAxisRaw("Mouse Y") * Time.deltaTime * speed);
-        //    }
-
-        //    else if (Input.GetAxis("Mouse X") < 0)
-        //    {
-        //        transform.position += new Vector3(Input.GetAxisRaw("Mouse X") * Time.deltaTime * speed,
-        //                                   0.0f, Input.GetAxisRaw("Mouse Y") * Time.deltaTime * speed);
-        //    }
-
-        //}
-
+       
     }
 
 

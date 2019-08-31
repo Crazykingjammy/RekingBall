@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ReckingBall.unity
     guid: 71f1d16703fcc4625b975c2f5ca1258a
+  - enabled: 0
+    path: Assets/Scenes/Levels/Level_1.unity
+    guid: adc3eaac0887b44c49645730666481ec
   m_configObjects: {}

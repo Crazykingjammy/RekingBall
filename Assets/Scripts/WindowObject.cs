@@ -20,6 +20,9 @@ public class WindowObject : MonoBehaviour
     Image WindowFrame;
 
 
+    //Store a reference of the script;
+    WindowScriptBase script;
+
     //Maybe more info later on that would handle window parameters?
 
 
@@ -39,6 +42,16 @@ public class WindowObject : MonoBehaviour
     public void CloseWindow()
     {
         this.gameObject.SetActive(false);
+
+        if (script != null)
+        {
+            //Call the script virtual init function.
+            script.OnExit();
+
+            //Do a log call.
+            Debug.Log("Window Script OnExit() Call. Name: " + script.name);
+
+        }
     }
 
     //Self handled window function to make calls upon activate.
@@ -68,7 +81,7 @@ public class WindowObject : MonoBehaviour
         WindowFrame = this.GetComponent<Image>();
 
         //Grab a any Window Scripts attached and call its init as well.
-        WindowScriptBase script = this.GetComponent<WindowScriptBase>();
+         script = this.GetComponent<WindowScriptBase>();
 
         //Check if we actaully have a script.
         if(script != null)
@@ -77,7 +90,7 @@ public class WindowObject : MonoBehaviour
             script.OnInit();
 
             //Do a log call.
-            Debug.Log("Window Script found. Name: " + script.name);
+            Debug.Log("Window Script found. Init() call. Name: " + script.name);
         }
     }
 }

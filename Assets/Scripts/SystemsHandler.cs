@@ -6,12 +6,15 @@ public class SystemsHandler : MonoBehaviour
 {
     //Reference for the color of all the windows.
     [SerializeField]
-    Color WindowColor; 
+    Color WindowColor;
 
     //The list of our windows for access. 
     [SerializeField]
     WindowObject[] Windows;
- 
+
+    //Reference of the GameOS Object.
+    GameOS _gameOS;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,12 +23,15 @@ public class SystemsHandler : MonoBehaviour
         {
             window.Init();
         }
+
+        //Grab the refernece of the game OS object.
+        _gameOS = GetComponent<GameOS>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void ToggleWindow(int index)
@@ -77,8 +83,16 @@ public class SystemsHandler : MonoBehaviour
     public Color SystemWindowColor
     {
         //Just return direct window color that was passed in.
-        get{ return WindowColor; }
+        get { return WindowColor; }
     }
 
+    public GameOS ActiveGame
+    {
+        get {
+            if(_gameOS == null)
+                _gameOS = GetComponent<GameOS>();
+
+            return _gameOS; }
+    }
     
 }

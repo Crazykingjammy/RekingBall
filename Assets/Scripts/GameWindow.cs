@@ -17,6 +17,7 @@ public class GameWindow : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
        
     }
 
+    
     public void OnBeginDrag(PointerEventData eventData)
     {
         //Grab the game object at the raycast test.

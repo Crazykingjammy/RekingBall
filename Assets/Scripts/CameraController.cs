@@ -14,10 +14,7 @@ public class CameraController : MonoBehaviour
     RectTransform GameWindow;
 
     [SerializeField]
-    float speed = 10.0f;
-   
-    [SerializeField]
-    float Height = 10;
+    float speed = 10.0f, zoomSpeed = 2.0f;
 
     [SerializeField]
     float Radius = 10;
@@ -38,6 +35,11 @@ public class CameraController : MonoBehaviour
 
     public void UpdateGameCamera()
     {
+        Radius += Input.GetAxis("Mouse Y") * zoomSpeed;
+
+        //Calculate the offset every update?
+        offset = (transform.position - CenterPoint.position).normalized * Radius;
+
         Quaternion q = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * speed, Vector3.up);
         offset = q * offset;
         transform.rotation = q * transform.rotation;
@@ -45,10 +47,18 @@ public class CameraController : MonoBehaviour
         transform.position = CenterPoint.position + offset;
     }
 
+       
+
     // Update is called once per frame
     void LateUpdate()
     {
        
+    }
+
+    //Call the update camera function when we are enabled.
+    private void OnEnable()
+    {
+        UpdateGameCamera();
     }
 
 

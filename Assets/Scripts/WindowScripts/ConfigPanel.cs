@@ -12,9 +12,7 @@ public class ConfigPanel : WindowScriptBase
     [SerializeField]
     Slider[] ColorSliders;
 
-    //we will just pass in the system ahndler for now. Should be a static global.
-    [SerializeField]
-    SystemsHandler _handler;
+    
 
     //Our reference for the color of the system.
     private Color _systemColor, _selectedColor;

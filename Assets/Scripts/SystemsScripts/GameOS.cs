@@ -12,6 +12,9 @@ public class GameOS : MonoBehaviour
     [SerializeField]
     CameraController gameCam;
 
+    [SerializeField]
+    BlockLoader loader;
+
     //For local cache.
     Crane craneInstance; 
 
@@ -94,6 +97,11 @@ public class GameOS : MonoBehaviour
         _instantiateFromTemplate();
 
         //TODO:Restore position and rotation.
+    }
+
+    public void GAME_LOADLEVEL()
+    {
+        loader.SpawnFromDataSet();
     }
 
 

@@ -66,6 +66,9 @@ public class BlockLoader : MonoBehaviour
         b.transform.localPosition = position;
         b.SetParentLoader(this);
 
+
+        data.title = "A New Level an be Saved!";
+
     }
 
 

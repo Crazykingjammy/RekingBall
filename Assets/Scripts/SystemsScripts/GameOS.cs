@@ -96,6 +96,10 @@ public class GameOS : MonoBehaviour
         //Reload new reference from template.
         _instantiateFromTemplate();
 
+
+        //call reset from the loader.
+        loader.ClearStack();
+
         //TODO:Restore position and rotation.
     }
 
@@ -109,38 +113,7 @@ public class GameOS : MonoBehaviour
     ///Question, do we place crane accessors here? or do places go to the crane directly? THis makes the code shorder on the accessors side.
     ///hmmm lets see how well this works out.
     ///
-    public Vector3 CranePositionOnMap
-    { get
-        {
-            if (craneInstance)
-                return craneInstance.NormalizedPosition;
 
-            return Vector3.zero;
-        }
-
-        set
-        {
-            if (craneInstance)
-                craneInstance.NormalizedPosition = value;
-        }
-    }
-
-    public float CraneRotation
-    {
-        get
-        {
-            if (craneInstance)
-                return craneInstance.RotationAngle;
-
-            return 0.0f;
-        }
-
-        set
-        {
-            if (craneInstance)
-                craneInstance.RotationAngle = value;
-        }
-    }
 
 
     //Here is a wrapper for a wrapper. Not sure if we need this but hey.

@@ -11,6 +11,7 @@ public class BlockLoader : MonoBehaviour
     Block Reference;
 
     List<Block> ItemPool;
+    List<GameObject> TotalPool;
 
 
     // Start is called before the first frame update
@@ -18,7 +19,8 @@ public class BlockLoader : MonoBehaviour
     {
         //Instantuate the lsit.
         ItemPool = new List<Block>();
-        
+        TotalPool = new List<GameObject>();
+
     }
 
     // Update is called once per frame
@@ -36,6 +38,18 @@ public class BlockLoader : MonoBehaviour
         }
     }
 
+public void ClearStack()
+{
+    //foreach(Block child in GetComponentsInChildren<Block>()  )
+    //{
+    //    child.gameObject.SetActive(false);
+    //}
+
+        foreach(GameObject child in TotalPool)
+        {
+            child.SetActive(false);
+        }
+}
 
     void SpawnBlockAtPosition(Vector3 position)
     {
@@ -66,6 +80,8 @@ public class BlockLoader : MonoBehaviour
         b.transform.localPosition = position;
         b.SetParentLoader(this);
 
+        //As we create a new box, lets keep track of it in the total pool.
+        TotalPool.Add(b.gameObject);
 
         data.title = "A New Level an be Saved!";
 

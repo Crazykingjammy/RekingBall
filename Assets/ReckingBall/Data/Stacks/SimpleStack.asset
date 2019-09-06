@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f7d107288914c929fb7a9c413066ac, type: 3}
   m_Name: SimpleStack
   m_EditorClassIdentifier: 
-  title: Game untouched.
+  title: A New Level an be Saved!
   SpawnPoints:
   - {x: 1.1800001, y: 1.219, z: 2.9899998}
   - {x: 2.64, y: 1.219, z: 2.9899998}

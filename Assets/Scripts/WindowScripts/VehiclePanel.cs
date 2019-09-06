@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Scriptables.Variables;
+using Scriptables.GameEvents;
+
 
 public class VehiclePanel : WindowScriptBase
 {
@@ -22,6 +25,27 @@ public class VehiclePanel : WindowScriptBase
 
     [SerializeField]
     Toggle ShowGrid;
+
+    //Create a link to the varaible field. and create a wrapper to access it internally.
+    [SerializeField]
+    Vector3Variable NormalizedPositionOnMap;
+    Vector3 _objectMapPosition
+    {
+        get { return NormalizedPositionOnMap.Value; }
+        set { NormalizedPositionOnMap.SetValue(value); }
+    }
+
+    [SerializeField]
+    FloatVariable CraneRotation;
+    float _objectRotation
+    {
+        get { return CraneRotation.Value; }
+        set { CraneRotation.SetValue(value); }
+    }
+
+
+    [SerializeField]
+    Vector3GameEvent MoveObject;
 
     //Going to have to put this here for now.
     //This is becuase we dont want to update the preview tab untill the sliders are fully updated with the given color.
@@ -45,8 +69,8 @@ public class VehiclePanel : WindowScriptBase
 
     void _updateIndicatorMap()
     {
-        Vector3 MapPos = _handler.ActiveGame.CranePositionOnMap;
-        float RotAngle = _handler.ActiveGame.CraneRotation;
+        Vector3 MapPos = _objectMapPosition;
+        float RotAngle = _objectRotation;
 
         //Scale the X position by the range.
         MapPos.x *= IndicatorRange.x;
@@ -77,39 +101,25 @@ public class VehiclePanel : WindowScriptBase
 
     private void OnEnable()
     {
-        //if (_handler == null)
-        //{
-        //    Debug.LogError("Trying to access a GameOS Reference that is not there:  " + this.name);
-        //    return;
-        //}
-
-        //Vector3 MapPos = _handler.ActiveGame.CranePositionOnMap;
-
         ////Grabbing and setting the values on the slider.
-        //Strafe.value = MapPos.x;
-        //Forward.value = MapPos.z;
-
         LoadWidgetValues();
 
     }
-    //private void OnDisable()
-    //{
-    //    ShowGrid.isOn = false;
-    //}
+   
 
     public void VEHICLEPANEL_SLIDERCHANGE()
     {
         //Store postion for the vehicle. This is normalized.
         Vector3 VehiclePosition = new Vector3(Strafe.value, Height.value, Forward.value);
 
-        //Apply it to the actaual vehicle.
-        if(_handler.ActiveGame)
-        {
-            //Set the position.
-            _handler.ActiveGame.CranePositionOnMap = VehiclePosition;
+        _objectRotation = Rotation.value;
 
-            _handler.ActiveGame.CraneRotation = Rotation.value;
-        }
+        //_objectMapPosition = VehiclePosition;
+        // The following line does not need to get called.
+        //It is being triggered by the move event that needs to convert the normalized position.
+        //The conversion can be done on this side,
+        //to which we may not need an event.
+        MoveObject.Raise(VehiclePosition);
     }
 
 
@@ -158,15 +168,9 @@ public class VehiclePanel : WindowScriptBase
     }
 
     void LoadWidgetValues()
-    {
-        if (_handler == null)
-        {
-            Debug.LogError("Trying to access a GameOS Reference that is not there:  " + this.name);
-            return;
-        }
-
+    { 
         //Grabbing the map position.
-        Vector3 MapPos = _handler.ActiveGame.CranePositionOnMap;
+        Vector3 MapPos = _objectMapPosition;
 
         //Grabbing and setting the values on the slider.
         Strafe.value = MapPos.x;
@@ -175,6 +179,8 @@ public class VehiclePanel : WindowScriptBase
 
         ShowGrid.isOn = _handler.ActiveGame.Grid;
 
+        //This loaded bool is here so the feedbak of the sliders
+        //wont affect the actual change of the values the sliders are reading to begin with.
         _loaded = true;
     }
 

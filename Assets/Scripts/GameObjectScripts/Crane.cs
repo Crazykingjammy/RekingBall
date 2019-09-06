@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Scriptables.Variables;
+
 
 public class Crane : MonoBehaviour
 {
@@ -19,12 +21,44 @@ public class Crane : MonoBehaviour
 
 
 
+    //[SerializeField]
+    //Vector3  RangeMax;
+
+    //The max range field.
+    Vector3 RangeMax => _maxRange.Value;
+
     [SerializeField]
-    Vector3  RangeMax;
+    Vector3Variable _maxRange;
+
+    [SerializeField]
+    Vector3Variable _offsetPosition;
+
+    [SerializeField]
+    Vector3Variable _normalizedOffsetPosition;
+
 
     //Variables for movement of the crane.
-    Vector3 offsetPosition, normalizedOffsetPosition;
-    float offsetRotation;
+    //Vector3 offsetPosition, normalizedOffsetPosition;
+
+    Vector3 offsetPosition
+    {
+        get { return _offsetPosition.Value; }
+        set { _offsetPosition.SetValue(value); }
+    }
+
+    Vector3 normalizedOffsetPosition
+    {
+        get { return _normalizedOffsetPosition.Value; }
+        set { _normalizedOffsetPosition.SetValue(value);  }
+    }
+
+    [SerializeField]
+    FloatVariable _offsetRotation;
+    float offsetRotation
+    {
+        get { return _offsetRotation.Value; }
+        set { _offsetRotation.SetValue(value); }
+    }
 
    
     
@@ -52,7 +86,7 @@ public class Crane : MonoBehaviour
 
         //Set the rotation of the shaft.
         //Rotate around the up angle. 
-        Shaft.transform.localEulerAngles = new Vector3(0.0f, -RotationAngle, 0.0f);
+        Shaft.transform.localEulerAngles = new Vector3(0.0f, -offsetRotation, 0.0f);
     }
 
 
@@ -87,20 +121,33 @@ public class Crane : MonoBehaviour
     //Public Methods.
     public void MoveMe(float strafe, float forward)
     {
+        //Create a local varable to access the offset as we wish. 
+        Vector3 offset = offsetPosition;
 
-        offsetPosition.x += strafe * speed;
-        offsetPosition.z += forward * speed;
+        offset.x += strafe * speed;
+        offset.z += forward * speed;
 
         //Negate the amount added if the vehicle position if we are greater than our max bounds.
         if (_outOfBounds())
         {
-            offsetPosition.x -= strafe * speed;
-            offsetPosition.z -= forward * speed;
+            offset.x -= strafe * speed;
+            offset.z -= forward * speed;
         }
+
+        //Assign back the offset.
+        offsetPosition = offset;
 
         _calculateNormalizedPosition();
 
     }
+
+    ////Incomming with normalized position.
+    //public void UpdatePosition(Vector3 pos)
+    //{
+    //    //do stuff here.
+    //    NormalizedPosition = pos;
+   
+    //}
 
     //The action function of relesing the ball.
     public void BallRelease()
@@ -110,6 +157,13 @@ public class Crane : MonoBehaviour
         Handle.isKinematic = false;
     }
 
+    private void OnDestroy()
+    {
+        //Reset the values back to 0.
+        //We do this to reset back during run time.
+        offsetRotation = 0;
+        offsetPosition = Vector3.zero;
+    }
 
     //Accessors.
     public Vector3 NormalizedPosition
@@ -125,14 +179,6 @@ public class Crane : MonoBehaviour
         }
     }
 
-    public float RotationAngle
-    {
-        get { return offsetRotation; }
-        set
-        {
-            offsetRotation = value;
-        }
-    }
 
     public bool GridView
     {

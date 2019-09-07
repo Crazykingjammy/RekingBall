@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Scriptables.GameEvents;
 
 public class GameWindow : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [SerializeField]
-    CameraController gameCam;
+    [SerializeField] GameEvent CameraUpdateEvent;
+    //CameraController gameCam;
 
     private bool dragging = false;
 
@@ -38,8 +39,9 @@ public class GameWindow : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         //If dragging flag enabled, call camera udpate.
         if(dragging)
         {
-            gameCam.UpdateGameCamera();
-        }
+            // gameCam.UpdateGameCamera();
+            CameraUpdateEvent.Raise();
+         }
 
     }
 

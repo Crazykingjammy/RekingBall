@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Scriptables.Variables;
 
 public class ConfigPanel : WindowScriptBase
 {
+   
     //Grab our image for the color in the config.
     [SerializeField]
     Image colorPreview;
@@ -12,7 +14,9 @@ public class ConfigPanel : WindowScriptBase
     [SerializeField]
     Slider[] ColorSliders;
 
-    
+
+    //Global values that we need and use.
+    [SerializeField] ColorVariable SystemColor;
 
     //Our reference for the color of the system.
     private Color _systemColor, _selectedColor;
@@ -22,20 +26,6 @@ public class ConfigPanel : WindowScriptBase
     //This may replace an Selected color or reciving a message on start or something.
     private bool _loaded = false;
 
-
-
-    // Start is called before the first frame update
-    void Awake()
-    {
-       
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void UpdateColorPreview()
     {
@@ -76,7 +66,8 @@ public class ConfigPanel : WindowScriptBase
     //A config script function that goes to the handle and applies the color that is selected.
     public void ApplySystemColor()
     {
-        _handler.ApplySystemColor(colorPreview.color);
+        //Transfer over the selected color with this.
+        SystemColor.SetValue(_selectedColor);
     }
 
 
@@ -92,8 +83,8 @@ public class ConfigPanel : WindowScriptBase
         base.OnInit();
 
         //Grab the system color to keep for reference.
-        _systemColor =  _handler.SystemWindowColor;
-        _selectedColor = _handler.SystemWindowColor;
+        _systemColor = SystemColor.Value;
+        _selectedColor = SystemColor.Value;
 
         //Load sliders values on init. 
         LoadSliders();

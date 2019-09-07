@@ -47,6 +47,7 @@ public class VehiclePanel : WindowScriptBase
     [SerializeField]
     Vector3GameEvent MoveObject;
 
+    
     //Going to have to put this here for now.
     //This is becuase we dont want to update the preview tab untill the sliders are fully updated with the given color.
     //This may replace an Selected color or reciving a message on start or something.
@@ -125,15 +126,15 @@ public class VehiclePanel : WindowScriptBase
 
     public void VEHICLEPANEL_TOGGLEGRID()
     {
-        if (_handler.ActiveGame == null)
-        {
-            Debug.LogError("Trying to access a GameOS Reference that is not there:  " + this.name);
-            return;
-        }
+        //if (_handler.ActiveGame == null)
+        //{
+        //    Debug.LogError("Trying to access a GameOS Reference that is not there:  " + this.name);
+        //    return;
+        //}
 
-        _handler.ActiveGame.Grid = ShowGrid.isOn;
+        //_handler.ActiveGame.Grid = ShowGrid.isOn;
 
-        Debug.Log("Toggle Grid UI Command: " + ShowGrid.isOn );
+        //Debug.Log("Toggle Grid UI Command: " + ShowGrid.isOn );
 
     }
 
@@ -177,7 +178,7 @@ public class VehiclePanel : WindowScriptBase
         Height.value = MapPos.y;
         Forward.value = MapPos.z;
 
-        ShowGrid.isOn = _handler.ActiveGame.Grid;
+//        ShowGrid.isOn = _handler.ActiveGame.Grid;
 
         //This loaded bool is here so the feedbak of the sliders
         //wont affect the actual change of the values the sliders are reading to begin with.

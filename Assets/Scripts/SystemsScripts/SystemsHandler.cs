@@ -1,38 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Scriptables.Variables;
 
 public class SystemsHandler : MonoBehaviour
 {
     //Reference for the color of all the windows.
-    [SerializeField]
-    Color WindowColor;
+    [SerializeField] ColorVariable ThemeColor;
+
+    //Why not have a reference to the UIDRAGGER so we can update the info.
+   [SerializeField] UIDRAGGER _uiDraggerReference;
 
     //The list of our windows for access. 
     [SerializeField]
-    WindowObject[] Windows;
+    List<WindowObject> Windows;
 
-    //Reference of the GameOS Object.
-    GameOS _gameOS;
 
-    // Start is called before the first frame update
-    void Start()
+
+    //Internal functions.
+    void CalculateWindowIndexList()
     {
-        //On start, go ahead and loop around and call all the windows awake functions.
+        //Create a counter.
+        int index = 0;
+        //Go through the list and set the index.
         foreach (WindowObject window in Windows)
         {
-            window.Init();
+            //Set the index that the HandleName is stored in.
+            window.HandleIndex = index;
+
+            //iterate the index.
+            index++;
         }
-
-        //Grab the refernece of the game OS object.
-        _gameOS = GetComponent<GameOS>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void ToggleWindow(int index)
     {
@@ -60,20 +60,31 @@ public class SystemsHandler : MonoBehaviour
     /// Here we can place all our utility functions for system wide operations.
     /// Functions such as Update System Window Color
     /// Other optiosn such as languages should apply here..
-    ///
-    public void ApplySystemColor(Color color)
+    public void ApplyThemeColor()
     {
-        //First we actually set the system color.
-        WindowColor = color;
-
         //Then we go through the list of winodows and apply their color.
         foreach (WindowObject window in Windows)
         {
-            window.ApplyWindowColor(WindowColor);
+            window.ApplyWindowColor(SystemWindowColor) ;
         }
+
+        
 
     }
 
+    public void RegisterWindow(WindowObject window)
+    {
+        //Why not just call the init here. makes it feel more official.
+        window.Init();
+
+        //Add it to the systems list.
+        Windows.Add(window);
+
+        //Dont forget to add it to the UIDRAGGPANEL list.
+        _uiDraggerReference.UIPanels.Add(window.WindowHandleImage);
+
+        CalculateWindowIndexList();
+    }
 
     ///Accessors
     ///We will just have a nice neat little pile of accessor funcitons so we can keep control of when things are called.
@@ -83,16 +94,10 @@ public class SystemsHandler : MonoBehaviour
     public Color SystemWindowColor
     {
         //Just return direct window color that was passed in.
-        get { return WindowColor; }
+        get { return ThemeColor.Value; }
+  //      set { ThemeColor.SetValue(value);  }
     }
 
-    public GameOS ActiveGame
-    {
-        get {
-            if(_gameOS == null)
-                _gameOS = GetComponent<GameOS>();
+   
 
-            return _gameOS; }
-    }
-    
 }

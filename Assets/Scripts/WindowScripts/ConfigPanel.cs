@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Scriptables.Variables;
+using GameKernal.System;
 
 public class ConfigPanel : WindowScriptBase
 {

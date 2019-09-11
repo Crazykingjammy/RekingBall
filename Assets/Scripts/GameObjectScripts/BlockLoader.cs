@@ -1,99 +1,110 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Scriptables.References;
 
-public class BlockLoader : MonoBehaviour
+namespace RekingBall.GameObjects.Managers
 {
-    [SerializeField]
-    BlockStackData data;
-
-    [SerializeField]
-    Block Reference;
-
-    List<Block> ItemPool;
-    List<GameObject> TotalPool;
-
-
-    // Start is called before the first frame update
-    void Start()
+    public class BlockLoader : MonoBehaviour
     {
-        //Instantuate the lsit.
-        ItemPool = new List<Block>();
-        TotalPool = new List<GameObject>();
+        [SerializeField]
+        StackLibrary Library;
 
-    }
+        [SerializeField]
+        IntReference SelectedLevel;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        //Quick accessor for selected blockstack. 
+        BlockStackData data => Library.GetAtIndex(SelectedLevel);
 
-    public void SpawnFromDataSet()
-    {
-        //Go through all of the spawn points.
-        foreach(Vector3 position in data.SpawnPoints)
+        [SerializeField]
+        Block Reference;
+
+        List<Block> ItemPool;
+        List<GameObject> TotalPool;
+
+
+        // Start is called before the first frame update
+        void Start()
         {
-            SpawnBlockAtPosition(position);
+            //Instantuate the lsit.
+            ItemPool = new List<Block>();
+            TotalPool = new List<GameObject>();
+
         }
-    }
 
-public void ClearStack()
-{
-    //foreach(Block child in GetComponentsInChildren<Block>()  )
-    //{
-    //    child.gameObject.SetActive(false);
-    //}
-
-        foreach(GameObject child in TotalPool)
+        // Update is called once per frame
+        void Update()
         {
-            child.SetActive(false);
+
         }
-}
 
-    void SpawnBlockAtPosition(Vector3 position)
-    {
-        Block b = null;
-
-        //Check if we have an item in the pool.
-        if(ItemPool.Count > 0)
+        public void SpawnFromDataSet()
         {
-            //Then we just grab the most recent and activate and set value.
-            b = ItemPool[0];
+            //Go through all of the spawn points.
+            foreach (Vector3 position in data.SpawnPoints)
+            {
+                SpawnBlockAtPosition(position);
+            }
+        }
 
-            //Remote from the list of pool.
-            ItemPool.RemoveAt(0);
+        public void ClearStack()
+        {
+            //foreach(Block child in GetComponentsInChildren<Block>()  )
+            //{
+            //    child.gameObject.SetActive(false);
+            //}
 
-            //Set the block position. and values.
+            foreach (GameObject child in TotalPool)
+            {
+                child.SetActive(false);
+            }
+        }
+
+        void SpawnBlockAtPosition(Vector3 position)
+        {
+            Block b = null;
+
+            //Check if we have an item in the pool.
+            if (ItemPool.Count > 0)
+            {
+                //Then we just grab the most recent and activate and set value.
+                b = ItemPool[0];
+
+                //Remote from the list of pool.
+                ItemPool.RemoveAt(0);
+
+                //Set the block position. and values.
+                b.transform.localPosition = position;
+                b.gameObject.SetActive(true);
+
+                //Then we return.
+                return;
+            }
+
+            //If we dont have an item in the pool.
+            //Create a block and and send it off.
+            b = Instantiate<Block>(Reference, this.transform);
+
+            //Set the local position.
             b.transform.localPosition = position;
-            b.gameObject.SetActive(true);
+            b.SetParentLoader(this);
 
-            //Then we return.
-            return;
+            //As we create a new box, lets keep track of it in the total pool.
+            TotalPool.Add(b.gameObject);
+
+            data.title = "A New Level an be Saved!";
+
         }
 
-        //If we dont have an item in the pool.
-        //Create a block and and send it off.
-        b = Instantiate<Block>(Reference, this.transform);
 
-        //Set the local position.
-        b.transform.localPosition = position;
-        b.SetParentLoader(this);
 
-        //As we create a new box, lets keep track of it in the total pool.
-        TotalPool.Add(b.gameObject);
+        public void ReturnToPool(Block b)
+        {
+            //Should already be deactivated at this point.
+            ItemPool.Add(b);
 
-        data.title = "A New Level an be Saved!";
-
+            //Function already called its own reset.
+        }
     }
 
-
-
-    public void ReturnToPool(Block b)
-    {
-        //Should already be deactivated at this point.
-        ItemPool.Add(b);
-
-        //Function already called its own reset.
-    }
 }

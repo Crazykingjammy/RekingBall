@@ -2,26 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockStack : MonoBehaviour
+namespace RekingBall.GameObjects.Managers
 {
-   
-   public BlockStackData data;
-
-    List<GameObject> blocks;
-
-    public string Name;
-
-    // Start is called before the first frame update
-    void Start()
+    public class BlockStack : MonoBehaviour
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        public BlockStackData data;
 
+        List<GameObject> blocks;
+
+        public string Name;
+
+        // Start is called before the first frame update
+        void Start()
+        {
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
+
+    }
 
 }

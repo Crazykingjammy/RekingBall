@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Scriptables.Variables;
 using Scriptables.GameEvents;
-
+using GameKernal.System;
 
 public class VehiclePanel : WindowScriptBase
 {
@@ -51,7 +51,7 @@ public class VehiclePanel : WindowScriptBase
     //Going to have to put this here for now.
     //This is becuase we dont want to update the preview tab untill the sliders are fully updated with the given color.
     //This may replace an Selected color or reciving a message on start or something.
-    private bool _loaded = false;
+    //private bool _loaded = false;
 
 
     // Start is called before the first frame update
@@ -182,7 +182,7 @@ public class VehiclePanel : WindowScriptBase
 
         //This loaded bool is here so the feedbak of the sliders
         //wont affect the actual change of the values the sliders are reading to begin with.
-        _loaded = true;
+       // _loaded = true;
     }
 
 

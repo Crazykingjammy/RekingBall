@@ -100,6 +100,10 @@ namespace RekingBall.GameObjects
             //Get rid of the current reference.
             Destroy(craneInstance.gameObject);
 
+            //Set the instance to null shall we?
+            //Is it the safer thing to do?
+            craneInstance = null;
+
             //Reload new reference from template.
             _instantiateFromTemplate();
 
@@ -112,9 +116,13 @@ namespace RekingBall.GameObjects
 
         public void GAME_LOADLEVEL()
         {
+
+           // GAME_RESETLEVEL();
+
             loader.SpawnFromDataSet();
         }
 
+        //public void 
 
         ///Question, do we place crane accessors here? or do places go to the crane directly? THis makes the code shorder on the accessors side.
         ///hmmm lets see how well this works out.

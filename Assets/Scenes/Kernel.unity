@@ -3026,11 +3026,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: _App_RekingBall
       objectReference: {fileID: 0}
-    - target: {fileID: 1827265228387565206, guid: c973acd84eb044b4284786c5273a7c88,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1827265228387565207, guid: c973acd84eb044b4284786c5273a7c88,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3135,16 +3130,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5068878797816038172, guid: c973acd84eb044b4284786c5273a7c88,
-        type: 3}
-      propertyPath: m_Inertia
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8574449041518936984, guid: c973acd84eb044b4284786c5273a7c88,
-        type: 3}
-      propertyPath: m_NumberOfSteps
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c973acd84eb044b4284786c5273a7c88, type: 3}

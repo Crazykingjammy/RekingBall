@@ -54,8 +54,6 @@ namespace GameKernal.System
                 //Call the script virtual init function.
                 script.OnExit();
 
-                //Do a log call.
-                Debug.Log("Window Script OnExit() Call. Name: " + script.name);
 
             }
         }
@@ -94,9 +92,7 @@ namespace GameKernal.System
             {
                 //Call the script virtual init function.
                 script.OnInit();
-
-                //Do a log call.
-                Debug.Log("Window Script found. Init() call. Name: " + script.name);
+       
             }
         }
 

@@ -90,8 +90,7 @@ public class ConfigPanel : WindowScriptBase
         //Load sliders values on init. 
         LoadSliders();
 
-        //log message.
-        Debug.Log("Override Init Function called : " + this.name);
+        
 
     }
 }

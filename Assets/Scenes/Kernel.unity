@@ -3026,6 +3026,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: _App_RekingBall
       objectReference: {fileID: 0}
+    - target: {fileID: 1827265228387565206, guid: c973acd84eb044b4284786c5273a7c88,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1827265228387565207, guid: c973acd84eb044b4284786c5273a7c88,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -13,44 +13,88 @@ MonoBehaviour:
   m_Name: SimpleStack
   m_EditorClassIdentifier: 
   title: A basic stack of blocks
-  SpawnPoints:
-  - {x: 1.1800001, y: 1.219, z: 2.9899998}
-  - {x: 2.64, y: 1.219, z: 2.9899998}
-  - {x: 2.64, y: 1.219, z: 4.49}
-  - {x: 1.1800001, y: 1.219, z: 4.49}
-  - {x: 1.1800001, y: 2.83, z: 2.9899998}
-  - {x: 2.64, y: 2.83, z: 2.9899998}
-  - {x: 2.64, y: 2.83, z: 4.49}
-  - {x: 1.1800001, y: 2.83, z: 4.49}
-  - {x: 1.1800001, y: 4.62, z: 2.9899998}
-  - {x: 2.64, y: 4.62, z: 2.9899998}
-  - {x: 2.64, y: 4.62, z: 4.49}
-  - {x: 1.1800001, y: 4.62, z: 4.49}
-  - {x: 1.1800001, y: 6.41, z: 2.9899998}
-  - {x: 2.64, y: 6.41, z: 2.9899998}
-  - {x: 2.64, y: 6.41, z: 4.49}
-  - {x: 1.1800001, y: 6.41, z: 4.49}
-  - {x: 1.1800001, y: 8.17, z: 2.9899998}
-  - {x: 2.64, y: 8.17, z: 2.9899998}
-  - {x: 2.64, y: 8.17, z: 4.49}
-  - {x: 1.1800001, y: 8.17, z: 4.49}
-  - {x: -2.0700002, y: 1.219, z: 2.9899998}
-  - {x: -0.61, y: 1.219, z: 2.9899998}
-  - {x: -0.61, y: 1.219, z: 4.49}
-  - {x: -2.0700002, y: 1.219, z: 4.49}
-  - {x: -2.0700002, y: 2.83, z: 2.9899998}
-  - {x: -0.61, y: 2.83, z: 2.9899998}
-  - {x: -0.61, y: 2.83, z: 4.49}
-  - {x: -2.0700002, y: 2.83, z: 4.49}
-  - {x: -2.0700002, y: 4.62, z: 2.9899998}
-  - {x: -0.61, y: 4.62, z: 2.9899998}
-  - {x: -0.61, y: 4.62, z: 4.49}
-  - {x: -2.0700002, y: 4.62, z: 4.49}
-  - {x: -2.0700002, y: 6.41, z: 2.9899998}
-  - {x: -0.61, y: 6.41, z: 2.9899998}
-  - {x: -0.61, y: 6.41, z: 4.49}
-  - {x: -2.0700002, y: 6.41, z: 4.49}
-  - {x: -2.0700002, y: 8.17, z: 2.9899998}
-  - {x: -0.61, y: 8.17, z: 2.9899998}
-  - {x: -0.61, y: 8.17, z: 4.49}
-  - {x: -2.0700002, y: 8.17, z: 4.49}
+  TypeInfo:
+  - SpawnPoint: {x: -0.52, y: 3.69, z: 3.6799998}
+    SpawnRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+    SpawnSize: {x: 5, y: 1, z: 1}
+    type: {fileID: 11400000, guid: 91a415d3c3c68498b84ff2c260134ec9, type: 2}
+  - SpawnPoint: {x: 0.84, y: 0.67999995, z: 2.62}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -0.58, y: 0.67999995, z: 2.62}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 0.84, y: 0.67999995, z: 3.96}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -0.58, y: 0.67999995, z: 3.96}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 0.84, y: 2.07, z: 2.62}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -0.58, y: 2.07, z: 2.62}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 0.84, y: 2.07, z: 3.96}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -0.58, y: 2.07, z: 3.96}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -5.26, y: 0.67999995, z: 2.62}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -6.6800003, y: 0.67999995, z: 2.62}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -5.26, y: 0.67999995, z: 3.96}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -6.6800003, y: 0.67999995, z: 3.96}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -5.26, y: 2.07, z: 2.62}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -6.6800003, y: 2.07, z: 2.62}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -5.26, y: 2.07, z: 3.96}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -6.6800003, y: 2.07, z: 3.96}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -5.3, y: 3.7, z: 3.7599998}
+    SpawnRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+    SpawnSize: {x: 5, y: 1, z: 1}
+    type: {fileID: 11400000, guid: 91a415d3c3c68498b84ff2c260134ec9, type: 2}
+  - SpawnPoint: {x: -2.91, y: 5.44, z: 5.5299997}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 5, y: 1, z: 1}
+    type: {fileID: 11400000, guid: 91a415d3c3c68498b84ff2c260134ec9, type: 2}
+  - SpawnPoint: {x: -2.91, y: 5.44, z: 2.2599998}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 5, y: 1, z: 1}
+    type: {fileID: 11400000, guid: 91a415d3c3c68498b84ff2c260134ec9, type: 2}
+  - SpawnPoint: {x: -2.68, y: 8.63, z: 3.96}
+    SpawnRotation: {x: -0, y: -0, z: -0, w: 1}
+    SpawnSize: {x: 3, y: 3, z: 3}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}

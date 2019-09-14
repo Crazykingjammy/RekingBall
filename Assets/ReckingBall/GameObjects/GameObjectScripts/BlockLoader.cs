@@ -42,10 +42,21 @@ namespace RekingBall.GameObjects.Managers
         public void SpawnFromDataSet()
         {
             //Go through all of the spawn points.
-            foreach (Vector3 position in data.SpawnPoints)
+            //foreach (Vector3 position in data.SpawnPoints)
+            //{
+            //    SpawnBlockAtPosition(position);
+            //}
+
+           // data.so
+
+            foreach(BlockStackData.TypeData blockinfo in data.TypeInfo)
             {
-                SpawnBlockAtPosition(position);
+                //SpawnBlockAtPosition(blockinfo.type, blockinfo.SpawnPoint);
+                SpawnBlock(blockinfo);
+
             }
+
+
         }
 
         public void ClearStack()
@@ -59,6 +70,50 @@ namespace RekingBall.GameObjects.Managers
             {
                 child.SetActive(false);
             }
+
+            //Clear the list once we clear the stack.
+            TotalPool.Clear();
+        }
+
+        void SpawnBlock(BlockStackData.TypeData block)
+        {
+            //Create an instance.
+            Block b = null;
+
+
+            b = block.type.RequestType();
+
+            //Set the transform and the parent.
+            b.transform.SetParent(this.transform);
+            b.transform.localPosition = block.SpawnPoint;
+
+            //Setting rotation and scale.
+            b.transform.localScale = block.SpawnSize;
+            b.transform.localRotation = block.SpawnRotation;
+
+            //Activate.
+            b.gameObject.SetActive(true);
+
+            //Add to the total pool.
+            TotalPool.Add(b.gameObject);
+        }
+
+        void SpawnBlockAtPosition(BlockType type, Vector3 pos)
+        {
+            Block b = null;
+
+            b = type.RequestType();
+
+            //Set the transform and the parent.
+            b.transform.SetParent(this.transform);
+            b.transform.localPosition = pos;
+
+            //Activate.
+            b.gameObject.SetActive(true);
+
+            //Add to the total pool.
+            TotalPool.Add(b.gameObject);
+
         }
 
         void SpawnBlockAtPosition(Vector3 position)

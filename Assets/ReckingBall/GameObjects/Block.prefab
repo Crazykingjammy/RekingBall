@@ -124,3 +124,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 75
   Points: 5
+  type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}

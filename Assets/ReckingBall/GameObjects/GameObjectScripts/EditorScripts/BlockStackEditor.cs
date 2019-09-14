@@ -1,9 +1,10 @@
-﻿using UnityEngine;
-using UnityEditor;
+﻿using RekingBall.GameObjects.Managers;
+using RekingBall.Scriptables;
 
 using UnityEditorInternal;
-using RekingBall.GameObjects.Managers;
-using RekingBall.Scriptables;
+using UnityEditor;
+using UnityEngine;
+using RekingBall.GameObjects;
 
 namespace RekingBall.GameObjects.EditorScripts
 {
@@ -11,20 +12,25 @@ namespace RekingBall.GameObjects.EditorScripts
     public class BlockStackEditor : Editor
     {
         //The data itself.
-        private SerializedProperty blocks, dataRef;
+        private SerializedProperty blocks;
 
         //Data access.
         private BlockStack myInstance;
         private BlockStackData blockdata;
 
         Rigidbody[] allTheBoxes;
+        Block[] allTheBlocks;
+
+        public BlockStackEditor()
+        {
+        }
 
         // Start is called before the first frame update
         private void OnEnable()
         {
             //Find our properities.
             blocks = serializedObject.FindProperty("Name");
-            dataRef = serializedObject.FindProperty("data");
+            // dataRef = serializedObject.FindProperty("data");
 
             ////Cast the target object into my instance?
             myInstance = (BlockStack)target;
@@ -34,12 +40,14 @@ namespace RekingBall.GameObjects.EditorScripts
             ////Go through the instance and grab the childrne?
             allTheBoxes = myInstance.GetComponentsInChildren<Rigidbody>();
 
+            allTheBlocks = myInstance.GetComponentsInChildren<Block>();
+
         }
 
         //Inspector GUI function.
         public override void OnInspectorGUI()
         {
-
+            base.OnInspectorGUI();
 
             //Draw the name of the block stack.
             //No need, but just learnign the editor calls.
@@ -60,9 +68,15 @@ namespace RekingBall.GameObjects.EditorScripts
             EditorGUILayout.Space();
 
             //Draw out the spawn points data first.
-            foreach (Vector3 point in blockdata.SpawnPoints)
-            {
-                EditorGUILayout.Vector3Field("Spawn Point: ", point);
+            //foreach (Vector3 point in blockdata.SpawnPoints)
+            //{
+            //    EditorGUILayout.Vector3Field("Spawn Point: ", point);
+            //}
+
+            foreach(BlockStackData.TypeData blocktype in blockdata.TypeInfo)
+            {               
+                EditorGUILayout.LabelField(blocktype.type.name);
+                EditorGUILayout.Vector3Field("Position: ",blocktype.SpawnPoint);
             }
 
             EditorGUILayout.Space();
@@ -81,6 +95,11 @@ namespace RekingBall.GameObjects.EditorScripts
             for (int i = 0; i < allTheBoxes.Length; i++)
             {
                 EditorGUILayout.Vector3Field("Box Position: ", allTheBoxes[i].position);
+
+                if(allTheBlocks[i] != null)
+                    EditorGUILayout.LabelField(allTheBlocks[i].Type.name);
+
+
             }
 
             EditorGUILayout.Space();
@@ -94,12 +113,26 @@ namespace RekingBall.GameObjects.EditorScripts
         void GrabBlockData()
         {
             //Lets start by clearing out the list in the block data.
-            blockdata.SpawnPoints.Clear();
+            //blockdata.SpawnPoints.Clear();
+            blockdata.TypeInfo.Clear();
 
             //Go through all the list and add the spawn points.
             for (int i = 0; i < allTheBoxes.Length; i++)
-            {
-                blockdata.SpawnPoints.Add(allTheBoxes[i].position);
+            {      
+               //Grab the type data.
+                BlockStackData.TypeData type = new BlockStackData.TypeData();
+
+                //Set teh parameters.
+                //Grabbing the transform data from the boxes.
+                //i think local data(scale and rotaiton) would work.
+                type.SpawnPoint = allTheBoxes[i].position;
+                type.SpawnSize = allTheBoxes[i].transform.localScale;
+                type.SpawnRotation = allTheBoxes[i].transform.localRotation;
+
+                if (allTheBlocks[i] != null)
+                    type.type = allTheBlocks[i].Type;
+
+                blockdata.TypeInfo.Add(type);
             }
 
 
@@ -108,9 +141,6 @@ namespace RekingBall.GameObjects.EditorScripts
 
         }
 
-        private void OnDisable()
-        {
-            //if()
-        }
+
     }
 }

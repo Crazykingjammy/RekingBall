@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using RekingBall.GameObjects.Managers;
+﻿using RekingBall.GameObjects.Managers;
+using RekingBall.Scriptables;
+
 using UnityEngine;
 
 namespace RekingBall.GameObjects
@@ -9,6 +9,9 @@ namespace RekingBall.GameObjects
     {
         [SerializeField]
         int Health, Points;
+
+        [SerializeField] BlockType type;
+
 
         //Here we will store a refernce to the block pool.
         //this should be eventually phased out and replaced with an delegate.
@@ -36,6 +39,7 @@ namespace RekingBall.GameObjects
 
         }
 
+        public BlockType Type => type;
 
         private void OnDisable()
         {
@@ -47,8 +51,8 @@ namespace RekingBall.GameObjects
             this.transform.rotation = Quaternion.identity;
 
 
-            //Tell my parent that i have been disabled, so they can recycle me.
-            myParent.ReturnToPool(this);
+            ///Call the type reset, which adds to the pool of disabled types.
+            type.OnTypeReset(this);
         }
 
         Rigidbody _selfBody

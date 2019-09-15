@@ -43,6 +43,10 @@ namespace RekingBall.Panels
         //Refresh view on enable.
         private void OnEnable()
         {
+            //The false parameterwill indicate to action, or false triggering being made as we zero out the selection.
+            FilesLayoutGroup.SetAllTogglesOff();
+
+            //Boom, as it should be, only refresh as we enable or switch the content we are viewing.
             OnRefreshView();
         }
 

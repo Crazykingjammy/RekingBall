@@ -23,7 +23,7 @@ namespace RekingBall.Scriptables
 
         [SerializeField]
         public string title = "[Enter Block Stack Title]";
-
+        
     
         [SerializeField] public List<TypeData> TypeInfo;
 

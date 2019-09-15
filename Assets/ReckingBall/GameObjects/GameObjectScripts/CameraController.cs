@@ -33,6 +33,7 @@ namespace GameKernal.Objects
         }
 
 
+
         public void UpdateGameCamera()
         {
             Radius += Input.GetAxis("Mouse Y") * zoomSpeed;

@@ -55,7 +55,9 @@ namespace RekingBall.GameObjects
             type.OnTypeReset(this);
         }
 
-        Rigidbody _selfBody
+  
+
+        public Rigidbody _selfBody
         {
             get
             {

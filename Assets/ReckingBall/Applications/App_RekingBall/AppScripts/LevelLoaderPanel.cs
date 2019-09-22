@@ -7,6 +7,7 @@ using GameKernal.System;
 using RekingBall.Scriptables;
 
 
+
 namespace RekingBall.Panels
 {
     public class LevelLoaderPanel : WindowScriptBase
@@ -14,14 +15,14 @@ namespace RekingBall.Panels
         //Open value for the amount we want to cache from the beginning.
         [SerializeField] int fileIconCacheAmount = 20;
 
-        //Reference to the library.
-        [SerializeField] StackLibrary library;
+        [SerializeField] LibraryDirectory GameLibrary;
 
         //Field for the files layout grid.
         [SerializeField] GridLayoutGroup FilesLayout;
 
         [SerializeField] ToggleGroup FilesLayoutGroup;
 
+        [SerializeField] Dropdown LibraryDropDownList;
 
         //Reference to the files prefab.
        [SerializeField] FileIconToggle templateIcon;
@@ -53,7 +54,15 @@ namespace RekingBall.Panels
         //Callback for toggle change.
         public void OnFileSelected(int index)
         {
-            library.SelectedIndexAtSelectedLibrary = index;
+            GameLibrary.SelectedStackIndex = index;
+        }
+
+        public void OnLibrarySelected(int index)
+        {
+            GameLibrary.SelectedLibraryIndex = index;
+            Debug.Log("On Dropdown list sleected value! : " + index);
+
+            OnRefreshView();
         }
 
         public void OnRefreshView()
@@ -63,14 +72,14 @@ namespace RekingBall.Panels
 
             //Lets go through and get the list of levels in the selected library.
             //And activate icons accordinly.
-            for (int i = 0; i < library.SelectedLibrarySize; i++)
+            for (int i = 0; i < GameLibrary.SelectedStackInLibrary.LibrarySize; i++)
             {
                 //Go through and label the files.
                 //reference the current icon.
                 FileIconToggle file = _iconList[i];
 
                 //Set the label.
-                file.Label = library.GetAtIndexAtSelectedLibrary(i).name;
+                file.Label = GameLibrary.GetStackInSelectedLibrary(i).name; //library.GetAtIndexAtSelectedLibrary(i).name;
 
                 //Set the index value of the toggle.
                 file.IndexReference = i;
@@ -118,6 +127,16 @@ namespace RekingBall.Panels
 
                 //And that should be it. List created and obtained. 
             }
+
+            //update the dropdown based on whats in our library.
+            List<string> library_list = new List<string>();
+
+            foreach (StackLibrary lib in GameLibrary.AvailableLibraries)
+            {
+                library_list.Add(lib.name);
+            }
+
+            LibraryDropDownList.AddOptions(library_list);
         }
 
 

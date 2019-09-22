@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0eeadfe00d34a4967ad300f7e13acf17, type: 3}
-  m_Name: BasicLibrary
+  m_Name: NewtonLibrary
   m_EditorClassIdentifier: 
   StackList:
-  - {fileID: 11400000, guid: 5c8921716f8b74f5eb608e63c2a3c4dd, type: 2}
-  - {fileID: 11400000, guid: 4af2c4724d1a3491b873a4fd03933013, type: 2}
-  - {fileID: 11400000, guid: 10baf6324cd3744acbe3cf7ad23240d4, type: 2}
-  - {fileID: 11400000, guid: 53519f72d7d39497398866c41e592e88, type: 2}
+  - {fileID: 11400000, guid: 67add6f0d2e094cf784cbbff6602122c, type: 2}
+  - {fileID: 11400000, guid: 9dcd002e9f765474bb4de071ff7e5dfc, type: 2}
+  - {fileID: 11400000, guid: ac124b652e609435ab474d4f95261f79, type: 2}
+  - {fileID: 11400000, guid: 828c9246df87e4f4084ab88a6910792d, type: 2}
   SelectedStackIndex:
     _useConstant: 0
     _constantValue: 0

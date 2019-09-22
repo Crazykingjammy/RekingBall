@@ -94,8 +94,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: f2bde3c90de3c4feebea3548dc00c920,
     type: 2}
   m_UseShadowmask: 0
@@ -224,86 +224,6 @@ LookAtConstraint:
   m_Sources:
   - sourceTransform: {fileID: 320080551}
     weight: 1
---- !u!1001 &106120970
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1824224594}
-    m_Modifications:
-    - target: {fileID: 170726428574256189, guid: bacc8176757cf42649e9e2452d81f764,
-        type: 3}
-      propertyPath: m_Name
-      value: BlockStack
-      objectReference: {fileID: 0}
-    - target: {fileID: 170726428574256189, guid: bacc8176757cf42649e9e2452d81f764,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 170726428574256188, guid: bacc8176757cf42649e9e2452d81f764,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 170726428574256188, guid: bacc8176757cf42649e9e2452d81f764,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 170726428574256188, guid: bacc8176757cf42649e9e2452d81f764,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 170726428574256188, guid: bacc8176757cf42649e9e2452d81f764,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 170726428574256188, guid: bacc8176757cf42649e9e2452d81f764,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 170726428574256188, guid: bacc8176757cf42649e9e2452d81f764,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 170726428574256188, guid: bacc8176757cf42649e9e2452d81f764,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 170726428574256188, guid: bacc8176757cf42649e9e2452d81f764,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 170726428574256188, guid: bacc8176757cf42649e9e2452d81f764,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 170726428574256188, guid: bacc8176757cf42649e9e2452d81f764,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 170726428574256188, guid: bacc8176757cf42649e9e2452d81f764,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bacc8176757cf42649e9e2452d81f764, type: 3}
---- !u!4 &106120971 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 170726428574256188, guid: bacc8176757cf42649e9e2452d81f764,
-    type: 3}
-  m_PrefabInstance: {fileID: 106120970}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &320080550
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,12 +320,12 @@ Camera:
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
+  m_projectionMatrixMode: 2
   m_GateFitMode: 2
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
+  m_FocalLength: 31.261068
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -414,7 +334,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 50
+  field of view: 42
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -702,6 +622,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -890,8 +811,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 106120971}
+  m_Children: []
   m_Father: {fileID: 1788487304}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -913,5 +833,6 @@ MonoBehaviour:
     _constantValue: 1
     _variable: {fileID: 0}
     DebugEnabled: 1
+  loaderDirectory: {fileID: 11400000, guid: 8bbfdfa48613e472194dbfc633be6c1d, type: 2}
   Reference: {fileID: 7752189733774973972, guid: 65cd41107d29a458aa0a1ca72deabfd2,
     type: 3}

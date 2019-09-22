@@ -14,31 +14,31 @@ namespace RekingBall.GameObjects.Managers
         [SerializeField]
         IntReference SelectedLevel;
 
+        //The only refernece the block loader needs, is the game directory. right? needs somewhere to look.
+        [SerializeField] LibraryDirectory loaderDirectory;
+
+
         //Quick accessor for selected blockstack. 
-        BlockStackData data => Library.CurrentStack;// .GetAtIndexAtSelectedLibrary(SelectedLevel);
+       // BlockStackData data => Library.CurrentStack;// .GetAtIndexAtSelectedLibrary(SelectedLevel);
+        BlockStackData data => loaderDirectory.SelectedStackInSelectedLibrary;
+
 
         [SerializeField]
         Block Reference;
 
-        List<Block> ItemPool;
+
         List<GameObject> TotalPool;
 
 
         // Start is called before the first frame update
         void Start()
         {
-            //Instantuate the lsit.
-            ItemPool = new List<Block>();
+            //Instantuate the list.
             TotalPool = new List<GameObject>();
 
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
+        
         public void SpawnFromDataSet()
         {
             foreach(BlockStackData.TypeData blockinfo in data.TypeInfo)

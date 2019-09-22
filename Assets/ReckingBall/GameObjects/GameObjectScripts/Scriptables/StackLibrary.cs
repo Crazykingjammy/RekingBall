@@ -14,11 +14,11 @@ namespace RekingBall.Scriptables
         //A list to store the library.
         //Should be dynamic to load from files so we keep it as a list and not array.
         //Although we can make a static array every time we load a library list, but lets jsut say list is fast enough.
-        [SerializeField] List<BlockStackData> Library;
+        [SerializeField] List<BlockStackData> StackList;
 
         //Universal reference for the selected index.
         //Will be used for functions to just reutrn library at hand.
-        [SerializeField] IntReference SelectedIndex;
+       // [SerializeField] IntReference SelectedStackIndex;
 
         //This should be an open list
         //The list shoudl fill up from file system.
@@ -29,29 +29,28 @@ namespace RekingBall.Scriptables
         {
             //Probally do some boundary checking.
             if (index < 0)
-                index = SelectedIndex.Value;
+                index = 0;
 
-            return Library[index];
+            return StackList[index];
         }
 
 
         //Accessors for utilities and such.
 
-            //Grab access to the count of the selcted library.
-        public int SelectedLibrarySize => Library.Count;
+        //Grab access to the count of the selcted library.
+        public int LibrarySize => StackList.Count;
 
-        //Easy setter once there is only one library.
-        public List<BlockStackData> SelectedLibrary => Library;
+        ////Grab the current stack for level loading and such.
+       // public BlockStackData CurrentStack => StackList[SelectedStackIndex.Value];
 
-        //Grab the current stack for level loading and such.
-        public BlockStackData CurrentStack => Library[SelectedIndex.Value];
+        public List<BlockStackData> Stack=> StackList;
 
-        //Grab and set the selected index.
-        public int SelectedIndexAtSelectedLibrary
-        {
-            get { return SelectedIndex.Value; }
-            set { SelectedIndex.SetValue(value); }
-        }
+        ////Grab and set the selected index.
+        //public int SelectedIndexAtSelectedLibrary
+        //{
+        //    get { return SelectedStackIndex.Value; }
+        //    set { SelectedStackIndex.SetValue(value); }
+        //}
 
     }
 

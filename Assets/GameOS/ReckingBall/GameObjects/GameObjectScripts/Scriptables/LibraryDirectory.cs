@@ -21,9 +21,30 @@ namespace RekingBall.Scriptables
 
 
 
-        //Accessor to the selected library.
-        //This is mainly a overrride function that may not need to be used. 
-       public StackLibrary GetStackLibraryAtIndex(int index = -1)
+  
+        ///Accessors and stuff that we may need.
+        ///
+
+            //to be updated to contain a list of libraries that are unlocked or not.
+        public List<StackLibrary> AvailableLibraries => Catelogue;
+
+        //Simple accessor to get current,
+        //Library Container.
+        public StackLibrary ActiveLibrary
+        {
+            get { return GetLibraryAtIndex(ActiveLibraryIndex); }
+        }
+
+        //Object Container.
+        public BlockStackData ActiveStack
+        {
+            //get { return SelectedStackInSelectedLibrary.getatin}
+            get { return ActiveLibrary.GetObjectAtIndex(StackLevelIndex.Value); }
+        }
+
+
+        //Function that returns library at specified index.
+        public StackLibrary GetLibraryAtIndex(int index = -1)
         {
             //Should be okay for boundary checking?
             if (index < 0 || index > Catelogue.Count)
@@ -32,33 +53,18 @@ namespace RekingBall.Scriptables
             return Catelogue[index];
         }
 
-        public BlockStackData GetStackInSelectedLibrary(int index = -1)
+        //Return ObjectStack at the given index, with the given active library.
+        public BlockStackData GetObjectStackFromActiveLibraryAtIndex(int index = -1)
         {
-            if (index < 0 || index > SelectedStackInLibrary.LibrarySize)
+            if (index < 0 || index > ActiveLibrary.LibrarySize)
                 index = StackLevelIndex.Value;
 
-            return SelectedStackInLibrary.Stack[index];
+            return ActiveLibrary.ObjectList[index];
         }
 
-        ///Accessors and stuff that we may need.
-        ///
 
-            //to be updated to contain a list of libraries that are unlocked or not.
-        public List<StackLibrary> AvailableLibraries => Catelogue;
 
-        //Simple accessor to get current,
-        public StackLibrary SelectedStackInLibrary
-        {
-            get { return GetStackLibraryAtIndex(SelectedLibraryIndex); }
-        }
-
-        public BlockStackData SelectedStackInSelectedLibrary
-        {
-            //get { return SelectedStackInSelectedLibrary.getatin}
-            get { return SelectedStackInLibrary.GetAtIndexAtSelectedLibrary(StackLevelIndex.Value); }
-        }
-
-        public int SelectedStackIndex
+        public int ActiveStackIndex
         {
             get { return StackLevelIndex.Value; }
             set
@@ -68,14 +74,11 @@ namespace RekingBall.Scriptables
             }
         }
 
-        public int SelectedLibraryIndex
+        public int ActiveLibraryIndex
         {
             get { return LibraryIndex.Value; }
             set
-            {
-                //Make sure value is not out of range.
-                //if(value > )
-
+            {              
                 //Probally do some logic or functon calls here.
                 LibraryIndex.SetValue(value);
             }

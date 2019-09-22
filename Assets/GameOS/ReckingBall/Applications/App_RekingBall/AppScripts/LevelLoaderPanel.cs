@@ -20,12 +20,15 @@ namespace RekingBall.Panels
         //Field for the files layout grid.
         [SerializeField] GridLayoutGroup FilesLayout;
 
+        //Toggle group for the grid.
         [SerializeField] ToggleGroup FilesLayoutGroup;
 
+        //Dropdown UI to select the library from.
         [SerializeField] Dropdown LibraryDropDownList;
 
         //Reference to the files prefab.
-       [SerializeField] FileIconToggle templateIcon;
+        //Template Reference for a file.
+        [SerializeField] FileIconToggle templateIcon;
 
         //List of created icons based on teh size of hte library.
         //Ideally we really want to handle this better.
@@ -54,12 +57,12 @@ namespace RekingBall.Panels
         //Callback for toggle change.
         public void OnFileSelected(int index)
         {
-            GameLibrary.SelectedStackIndex = index;
+            GameLibrary.ActiveStackIndex = index;
         }
 
         public void OnLibrarySelected(int index)
         {
-            GameLibrary.SelectedLibraryIndex = index;
+            GameLibrary.ActiveLibraryIndex = index;
             Debug.Log("On Dropdown list sleected value! : " + index);
 
             OnRefreshView();
@@ -72,14 +75,14 @@ namespace RekingBall.Panels
 
             //Lets go through and get the list of levels in the selected library.
             //And activate icons accordinly.
-            for (int i = 0; i < GameLibrary.SelectedStackInLibrary.LibrarySize; i++)
+            for (int i = 0; i < GameLibrary.ActiveLibrary.LibrarySize; i++)
             {
                 //Go through and label the files.
                 //reference the current icon.
                 FileIconToggle file = _iconList[i];
 
                 //Set the label.
-                file.Label = GameLibrary.GetStackInSelectedLibrary(i).name; //library.GetAtIndexAtSelectedLibrary(i).name;
+                file.Label = GameLibrary.GetObjectStackFromActiveLibraryAtIndex(i).name; //library.GetAtIndexAtSelectedLibrary(i).name;
 
                 //Set the index value of the toggle.
                 file.IndexReference = i;

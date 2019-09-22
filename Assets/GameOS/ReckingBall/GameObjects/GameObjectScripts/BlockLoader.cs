@@ -19,8 +19,7 @@ namespace RekingBall.GameObjects.Managers
 
 
         //Quick accessor for selected blockstack. 
-       // BlockStackData data => Library.CurrentStack;// .GetAtIndexAtSelectedLibrary(SelectedLevel);
-        BlockStackData data => loaderDirectory.SelectedStackInSelectedLibrary;
+        BlockStackData data => loaderDirectory.ActiveStack;
 
 
         [SerializeField]

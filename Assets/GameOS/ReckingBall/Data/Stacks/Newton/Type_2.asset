@@ -12,5 +12,169 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f7d107288914c929fb7a9c413066ac, type: 3}
   m_Name: Type_2
   m_EditorClassIdentifier: 
-  title: '[Enter Block Stack Title]'
-  TypeInfo: []
+  title: Type2
+  TypeInfo:
+  - SpawnPoint: {x: -0.5300001, y: 0.67999995, z: 2.07}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -1.95, y: 0.67999995, z: 2.07}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -0.5300001, y: 0.67999995, z: 3.41}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -1.95, y: 0.67999995, z: 3.4099998}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -0.5300001, y: 2.07, z: 2.07}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -1.95, y: 2.07, z: 2.07}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -0.5300001, y: 2.07, z: 3.41}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -1.95, y: 2.07, z: 3.41}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -0.5300001, y: 0.67999995, z: 4.9399996}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -1.95, y: 0.67999995, z: 4.9399996}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -0.5300001, y: 2.07, z: 4.9399996}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -1.95, y: 2.07, z: 4.9399996}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -0.5300001, y: 0.67999995, z: 6.4700003}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -1.95, y: 0.67999995, z: 6.4700003}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -0.5300001, y: 2.07, z: 6.4700003}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -1.95, y: 2.07, z: 6.4700003}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -0.5300001, y: 0.67999995, z: 7.88}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -1.95, y: 0.67999995, z: 7.88}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -0.5300001, y: 2.07, z: 7.88}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: -1.95, y: 2.07, z: 7.88}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 2.6, y: 0.67999995, z: 2.07}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 1.1800001, y: 0.67999995, z: 2.07}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 2.6, y: 0.67999995, z: 3.41}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 1.1800001, y: 0.67999995, z: 3.41}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 2.6, y: 2.07, z: 2.07}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 1.1800001, y: 2.07, z: 2.07}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 2.6, y: 2.07, z: 3.41}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 1.1800001, y: 2.07, z: 3.41}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 2.6, y: 0.67999995, z: 4.9399996}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 1.1800001, y: 0.67999995, z: 4.9399996}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 2.6, y: 2.07, z: 4.9399996}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 1.1800001, y: 2.07, z: 4.9399996}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 2.6, y: 0.67999995, z: 6.47}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 1.1800001, y: 0.67999995, z: 6.4700003}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 2.6, y: 2.07, z: 6.4700003}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 1.1800001, y: 2.07, z: 6.4700003}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 2.6, y: 0.67999995, z: 7.88}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 1.1800001, y: 0.67999995, z: 7.88}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 2.6, y: 2.07, z: 7.88}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 1.1800001, y: 2.07, z: 7.88}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 1, y: 1, z: 1}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}
+  - SpawnPoint: {x: 0.31, y: 6.25, z: 5.17}
+    SpawnRotation: {x: 0, y: 0, z: 0, w: 1}
+    SpawnSize: {x: 4, y: 4, z: 4}
+    type: {fileID: 11400000, guid: f99ff0c3f61924c719ab35b47a3806bc, type: 2}

@@ -26,9 +26,12 @@ namespace RekingBall.Panels
         //Dropdown UI to select the library from.
         [SerializeField] Dropdown LibraryDropDownList;
 
+        [SerializeField] Text LevelTitle;
+
         //Reference to the files prefab.
         //Template Reference for a file.
         [SerializeField] FileIconToggle templateIcon;
+
 
         //List of created icons based on teh size of hte library.
         //Ideally we really want to handle this better.
@@ -58,6 +61,7 @@ namespace RekingBall.Panels
         public void OnFileSelected(int index)
         {
             GameLibrary.ActiveStackIndex = index;
+            LevelTitle.text = GameLibrary.ActiveStack.title;
         }
 
         public void OnLibrarySelected(int index)
